@@ -20,7 +20,15 @@ class GlobalStateService {
         return filesList[index]
     }
 
+    fun setFiles(files: List<String>) {
+        this.filesList = files.toMutableList()
+    }
+
+    fun getFiles(): MutableList<String> {
+        return filesList
+    }
+
     fun getFilesAsString(): String {
-        return filesList.joinToString("--\n", prefix = "--")
+        return filesList.joinToString("\n")
     }
 }

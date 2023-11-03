@@ -35,19 +35,27 @@
             <action id="com.ahaydin.jpoon.actions.AddFileAction"
                     class="com.ahaydin.jpoon.actions.AddFileAction"
                     text="Add File to List"
-                    description="Adds a file to the list">
+            >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt w"/>
             </action>
             <action id="com.ahaydin.jpoon.actions.DisplayFilesAction"
                     class="com.ahaydin.jpoon.actions.DisplayFilesAction"
-                    text="Display Files"
-                    description="Display files">
+                    text="Edit Files"
+            >
+                <keyboard-shortcut keymap="$default" first-keystroke="alt r"/>
+            </action>
+            <action id="com.ahaydin.jpoon.actions.EditFilesListAction"
+                    class="com.ahaydin.jpoon.actions.EditFilesListAction"
+                    text="Edit Files"
+            >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt e"/>
             </action>
+
+
             <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction0"
                     class="com.ahaydin.jpoon.actions.openfile.OpenFileAction0"
                     text="Open First File"
-                    description="Opens the first file">
+            >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt a"/>
             </action>
             <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction1"
@@ -95,12 +103,6 @@
                     text="Open Ninth File"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt l"/>
-            </action>
-            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction9"
-                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction9"
-                    text="Open Tenth File"
-            >
-                <keyboard-shortcut keymap="$default" first-keystroke="alt ;"/>
             </action>
         </group>
     </actions>

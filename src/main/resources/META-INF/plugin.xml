@@ -1,0 +1,107 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.ahaydin.JPoon</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>JPoon</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>]]>
+    </description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+    <actions>
+        <group id="com.ahaydin.jpoon.group.JpoonActionGroup"
+               class="com.ahaydin.jpoon.group.JpoonActionGroup"
+               text="Not Custom Action Group"
+               popup="true">
+
+            <action id="com.ahaydin.jpoon.actions.AddFileAction"
+                    class="com.ahaydin.jpoon.actions.AddFileAction"
+                    text="Add File to List"
+                    description="Adds a file to the list">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt w"/>
+            </action>
+            <action id="com.ahaydin.jpoon.actions.DisplayFilesAction"
+                    class="com.ahaydin.jpoon.actions.DisplayFilesAction"
+                    text="Display Files"
+                    description="Display files">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt e"/>
+            </action>
+            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction0"
+                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction0"
+                    text="Open First File"
+                    description="Opens the first file">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt a"/>
+            </action>
+            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction1"
+                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction1"
+                    text="Open Second File">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt s"/>
+            </action>
+            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction2"
+                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction2"
+                    text="Open Third File">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt d"/>
+            </action>
+            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction3"
+                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction3"
+                    text="Open Fourth File"
+            >
+                <keyboard-shortcut keymap="$default" first-keystroke="alt f"/>
+            </action>
+            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction4"
+                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction4"
+                    text="Open Fifth File"
+            >
+                <keyboard-shortcut keymap="$default" first-keystroke="alt g"/>
+            </action>
+            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction5"
+                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction5"
+                    text="Open Sixth File"
+            >
+                <keyboard-shortcut keymap="$default" first-keystroke="alt h"/>
+            </action>
+            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction6"
+                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction6"
+                    text="Open Seventh File"
+            >
+                <keyboard-shortcut keymap="$default" first-keystroke="alt j"/>
+            </action>
+            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction7"
+                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction7"
+                    text="Open Eigth File"
+            >
+                <keyboard-shortcut keymap="$default" first-keystroke="alt k"/>
+            </action>
+            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction8"
+                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction8"
+                    text="Open Ninth File"
+            >
+                <keyboard-shortcut keymap="$default" first-keystroke="alt l"/>
+            </action>
+            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction9"
+                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction9"
+                    text="Open Tenth File"
+            >
+                <keyboard-shortcut keymap="$default" first-keystroke="alt ;"/>
+            </action>
+        </group>
+    </actions>
+</idea-plugin>

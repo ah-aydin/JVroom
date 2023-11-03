@@ -27,8 +27,4 @@ class GlobalStateService {
     fun getFiles(): MutableList<String> {
         return filesList
     }
-
-    fun getFilesAsString(): String {
-        return filesList.joinToString("\n")
-    }
 }

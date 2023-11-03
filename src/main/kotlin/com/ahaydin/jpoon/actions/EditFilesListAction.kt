@@ -54,7 +54,7 @@ class EditFilesListAction : AnAction() {
 
         override fun createCenterPanel(): JComponent {
             val scrollPane = JBScrollPane(textArea);
-            scrollPane.preferredSize = Dimension(700, 300)
+            scrollPane.preferredSize = Dimension(1000, 300)
             return scrollPane
         }
 

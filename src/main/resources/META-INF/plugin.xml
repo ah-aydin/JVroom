@@ -38,12 +38,6 @@
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt w"/>
             </action>
-            <action id="com.ahaydin.jpoon.actions.DisplayFilesAction"
-                    class="com.ahaydin.jpoon.actions.DisplayFilesAction"
-                    text="Edit Files"
-            >
-                <keyboard-shortcut keymap="$default" first-keystroke="alt r"/>
-            </action>
             <action id="com.ahaydin.jpoon.actions.EditFilesListAction"
                     class="com.ahaydin.jpoon.actions.EditFilesListAction"
                     text="Edit Files"

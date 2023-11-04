@@ -11,6 +11,7 @@ class FilePathsEditList(filePaths: List<String>) : JBList<String>(filePaths) {
 
 
     init {
+        selectedIndex = 0
         addKeyListener(
             object : KeyAdapter() {
                 override fun keyPressed(e: KeyEvent) {

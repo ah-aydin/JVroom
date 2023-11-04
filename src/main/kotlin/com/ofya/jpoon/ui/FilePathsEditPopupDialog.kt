@@ -22,6 +22,11 @@ class FilePathsEditPopupDialog(filePaths: List<String>) : DialogWrapper(true) {
     override fun createCenterPanel(): JComponent? {
         val scrollPane = JBScrollPane(filePathsEditList);
         scrollPane.preferredSize = Dimension(1000, 300)
+        filePathsEditList.requestFocus()
         return scrollPane
+    }
+
+    override fun getPreferredFocusedComponent(): JComponent {
+        return filePathsEditList
     }
 }

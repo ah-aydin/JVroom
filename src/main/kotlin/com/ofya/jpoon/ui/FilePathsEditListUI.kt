@@ -5,7 +5,7 @@ import java.awt.event.KeyAdapter
 import java.awt.event.KeyEvent
 import javax.swing.DefaultListModel
 
-class FilePathsEditList(filePaths: List<String>) : JBList<String>(filePaths) {
+class FilePathsEditListUI(filePaths: List<String>) : JBList<String>(filePaths) {
     private val DOUBLE_KEY_PRESS_MAX_DELAY_IN_MILLISECONDS = 300
     private var previousDeleteKeyPress: Long = 0;
 

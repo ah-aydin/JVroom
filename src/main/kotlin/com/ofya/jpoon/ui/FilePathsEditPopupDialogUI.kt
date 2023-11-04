@@ -5,28 +5,28 @@ import com.intellij.ui.components.JBScrollPane
 import java.awt.Dimension
 import javax.swing.JComponent
 
-class FilePathsEditPopupDialog(filePaths: List<String>) : DialogWrapper(true) {
-    private val filePathsEditList: FilePathsEditList
+class FilePathsEditPopupDialogUI(filePaths: List<String>) : DialogWrapper(true) {
+    private val filePathsEditListUI: FilePathsEditListUI
 
     init {
-        filePathsEditList = FilePathsEditList(filePaths)
+        filePathsEditListUI = FilePathsEditListUI(filePaths)
         init()
         title = "JPoon Files"
 
     }
 
     fun getFilePaths(): List<String> {
-        return filePathsEditList.getFilePaths();
+        return filePathsEditListUI.getFilePaths();
     }
 
     override fun createCenterPanel(): JComponent? {
-        val scrollPane = JBScrollPane(filePathsEditList);
+        val scrollPane = JBScrollPane(filePathsEditListUI);
         scrollPane.preferredSize = Dimension(1000, 300)
-        filePathsEditList.requestFocus()
+        filePathsEditListUI.requestFocus()
         return scrollPane
     }
 
     override fun getPreferredFocusedComponent(): JComponent {
-        return filePathsEditList
+        return filePathsEditListUI
     }
 }

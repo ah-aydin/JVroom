@@ -6,7 +6,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.vfs.VirtualFileManager
 import com.ofya.jpoon.GlobalStateService
-import com.ofya.jpoon.ui.FilePathsEditPopupDialog
+import com.ofya.jpoon.ui.FilePathsEditPopupDialogUI
 
 class EditFilesListAction : AnAction() {
     override fun update(event: AnActionEvent) {
@@ -27,12 +27,12 @@ class EditFilesListAction : AnAction() {
         val filePaths = globalStateService.getFilePaths()
 
 
-        val filePathsEditPopupDialog = FilePathsEditPopupDialog(filePaths)
-        filePathsEditPopupDialog.show()
+        val filePathsEditPopupDialogUI = FilePathsEditPopupDialogUI(filePaths)
+        filePathsEditPopupDialogUI.show()
 
 
-        if (filePathsEditPopupDialog.isOK) {
-            val editedFilePaths = filePathsEditPopupDialog.getFilePaths()
+        if (filePathsEditPopupDialogUI.isOK) {
+            val editedFilePaths = filePathsEditPopupDialogUI.getFilePaths()
             globalStateService.setFilePaths(editedFilePaths.stream().filter {
                 isProjectFile(it, projectBasePath)
             }.toList())

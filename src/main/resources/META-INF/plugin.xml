@@ -42,8 +42,8 @@
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt w"/>
             </action>
-            <action id="com.ofya.jpoon.actions.EditFilesListAction"
-                    class="com.ofya.jpoon.actions.EditFilesListAction"
+            <action id="com.ofya.jpoon.actions.EditFilesAction"
+                    class="com.ofya.jpoon.actions.EditFilesAction"
                     text="Edit Files"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt e"/>

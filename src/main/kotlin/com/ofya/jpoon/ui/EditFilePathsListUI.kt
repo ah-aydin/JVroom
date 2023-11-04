@@ -5,9 +5,15 @@ import java.awt.event.KeyAdapter
 import java.awt.event.KeyEvent
 import javax.swing.DefaultListModel
 
-class EditFilePathsListUI(filePaths: List<String>) : JBList<String>(filePaths) {
+class EditFilePathsListUI(filePaths: List<String>, parent: EditFilePathsPopupDialogUI) : JBList<String>(filePaths) {
     private val DOUBLE_KEY_PRESS_MAX_DELAY_IN_MILLISECONDS = 300
     private var previousDeleteKeyPress: Long = 0;
+
+    private val parent: EditFilePathsPopupDialogUI
+
+    init {
+        this.parent = parent
+    }
 
 
     init {
@@ -27,23 +33,25 @@ class EditFilePathsListUI(filePaths: List<String>) : JBList<String>(filePaths) {
         }
 
         if (e.isShiftDown) {
-            if ((e.keyCode == KeyEvent.VK_J || e.keyCode == KeyEvent.VK_DOWN) && selectedIndex + 1 < model.size) {
+            if (e.keyCode == KeyEvent.VK_J && selectedIndex + 1 < model.size) {
+                val nextIndex = selectedIndex + 1
                 val model = model as DefaultListModel
-                val element1 = model.getElementAt(selectedIndex)
-                val element2 = model.getElementAt(selectedIndex + 1)
+                val selectedElement = model.getElementAt(selectedIndex)
+                val nextElement = model.getElementAt(nextIndex)
 
-                model.set(selectedIndex, element2)
-                model.set(selectedIndex + 1, element1)
+                model.set(selectedIndex, nextElement)
+                model.set(nextIndex, selectedElement)
 
                 selectedIndex++
             }
-            if ((e.keyCode == KeyEvent.VK_K || e.keyCode == KeyEvent.VK_UP) && selectedIndex > 0) {
+            if (e.keyCode == KeyEvent.VK_K && selectedIndex > 0) {
+                val previousIndex = selectedIndex - 1
                 val model = model as DefaultListModel
-                val element1 = model.getElementAt(selectedIndex)
-                val element2 = model.getElementAt(selectedIndex - 1)
+                val selectedElement = model.getElementAt(selectedIndex)
+                val previousElement = model.getElementAt(previousIndex)
 
-                model.set(selectedIndex, element2)
-                model.set(selectedIndex - 1, element1)
+                model.set(selectedIndex, previousElement)
+                model.set(previousIndex, selectedElement)
 
                 selectedIndex--
             }
@@ -67,6 +75,12 @@ class EditFilePathsListUI(filePaths: List<String>) : JBList<String>(filePaths) {
                     }
                 }
                 previousDeleteKeyPress = currentTime
+            }
+            if (e.keyCode == KeyEvent.VK_ENTER) {
+                parent.performOKAction()
+            }
+            if (e.keyCode == KeyEvent.VK_ESCAPE) {
+                parent.doCancelAction()
             }
         }
     }

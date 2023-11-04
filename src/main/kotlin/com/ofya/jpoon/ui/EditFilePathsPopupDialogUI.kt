@@ -9,7 +9,7 @@ class EditFilePathsPopupDialogUI(filePaths: List<String>) : DialogWrapper(true) 
     private val editFilePathsListUI: EditFilePathsListUI
 
     init {
-        editFilePathsListUI = EditFilePathsListUI(filePaths)
+        editFilePathsListUI = EditFilePathsListUI(filePaths, this)
         init()
         title = "JPoon Files"
 
@@ -19,7 +19,7 @@ class EditFilePathsPopupDialogUI(filePaths: List<String>) : DialogWrapper(true) 
         return editFilePathsListUI.getFilePaths();
     }
 
-    override fun createCenterPanel(): JComponent? {
+    override fun createCenterPanel(): JComponent {
         val scrollPane = JBScrollPane(editFilePathsListUI);
         scrollPane.preferredSize = Dimension(1000, 300)
         editFilePathsListUI.requestFocus()

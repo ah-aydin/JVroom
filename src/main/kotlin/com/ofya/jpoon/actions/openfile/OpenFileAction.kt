@@ -1,12 +1,12 @@
-package com.ahaydin.jpoon.actions.openfile
+package com.ofya.jpoon.actions.openfile
 
-import com.ahaydin.jpoon.GlobalStateService
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.vfs.VirtualFileManager
+import com.ofya.jpoon.GlobalStateService
 
 open class OpenFileAction : AnAction() {
     override fun update(event: AnActionEvent) {

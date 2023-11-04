@@ -1,6 +1,5 @@
-package com.ahaydin.jpoon.actions
+package com.ofya.jpoon.actions
 
-import com.ahaydin.jpoon.GlobalStateService
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -8,6 +7,7 @@ import com.intellij.openapi.components.service
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.vfs.VirtualFileManager
 import com.intellij.ui.components.JBScrollPane
+import com.ofya.jpoon.GlobalStateService
 import java.awt.Dimension
 import javax.swing.JComponent
 import javax.swing.JTextArea

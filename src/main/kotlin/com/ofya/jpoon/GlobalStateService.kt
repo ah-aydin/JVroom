@@ -1,4 +1,4 @@
-package com.ahaydin.jpoon
+package com.ofya.jpoon
 
 import com.intellij.openapi.components.Service
 

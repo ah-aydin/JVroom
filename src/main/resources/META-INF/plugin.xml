@@ -1,14 +1,14 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
-    <id>com.ahaydin.JPoon</id>
+    <id>com.ofya.JPoon</id>
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
     <name>JPoon</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+    <vendor email="ahamzaaydin.py@gmail.com">No Company</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
@@ -25,75 +25,82 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable parentId="tools"
+                                 id="com.ofya.jpoon.settings.SettingsConfigurable"
+                                 instance="com.ofya.jpoon.settings.SettingsConfigurable"
+                                 displayName="JPoon"
+        />
+        <applicationService serviceImplementation="com.ofya.jpoon.settings.SettingsState"/>
     </extensions>
+
     <actions>
-        <group id="com.ahaydin.jpoon.JpoonActionGroup"
-               class="com.ahaydin.jpoon.JpoonActionGroup"
+        <group id="com.ofya.jpoon.JpoonActionGroup"
+               class="com.ofya.jpoon.JpoonActionGroup"
                text="Not Custom Action Group"
                popup="true">
 
-            <action id="com.ahaydin.jpoon.actions.AddFileAction"
-                    class="com.ahaydin.jpoon.actions.AddFileAction"
+            <action id="com.ofya.jpoon.actions.AddFileAction"
+                    class="com.ofya.jpoon.actions.AddFileAction"
                     text="Add File to List"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt w"/>
             </action>
-            <action id="com.ahaydin.jpoon.actions.EditFilesListAction"
-                    class="com.ahaydin.jpoon.actions.EditFilesListAction"
+            <action id="com.ofya.jpoon.actions.EditFilesListAction"
+                    class="com.ofya.jpoon.actions.EditFilesListAction"
                     text="Edit Files"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt e"/>
             </action>
 
 
-            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction0"
-                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction0"
+            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction0"
+                    class="com.ofya.jpoon.actions.openfile.OpenFileAction0"
                     text="Open First File"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt a"/>
             </action>
-            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction1"
-                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction1"
+            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction1"
+                    class="com.ofya.jpoon.actions.openfile.OpenFileAction1"
                     text="Open Second File">
                 <keyboard-shortcut keymap="$default" first-keystroke="alt s"/>
             </action>
-            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction2"
-                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction2"
+            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction2"
+                    class="com.ofya.jpoon.actions.openfile.OpenFileAction2"
                     text="Open Third File">
                 <keyboard-shortcut keymap="$default" first-keystroke="alt d"/>
             </action>
-            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction3"
-                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction3"
+            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction3"
+                    class="com.ofya.jpoon.actions.openfile.OpenFileAction3"
                     text="Open Fourth File"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt f"/>
             </action>
-            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction4"
-                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction4"
+            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction4"
+                    class="com.ofya.jpoon.actions.openfile.OpenFileAction4"
                     text="Open Fifth File"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt g"/>
             </action>
-            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction5"
-                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction5"
+            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction5"
+                    class="com.ofya.jpoon.actions.openfile.OpenFileAction5"
                     text="Open Sixth File"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt h"/>
             </action>
-            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction6"
-                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction6"
+            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction6"
+                    class="com.ofya.jpoon.actions.openfile.OpenFileAction6"
                     text="Open Seventh File"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt j"/>
             </action>
-            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction7"
-                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction7"
+            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction7"
+                    class="com.ofya.jpoon.actions.openfile.OpenFileAction7"
                     text="Open Eigth File"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt k"/>
             </action>
-            <action id="com.ahaydin.jpoon.actions.openfile.OpenFileAction8"
-                    class="com.ahaydin.jpoon.actions.openfile.OpenFileAction8"
+            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction8"
+                    class="com.ofya.jpoon.actions.openfile.OpenFileAction8"
                     text="Open Ninth File"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt l"/>

@@ -4,13 +4,9 @@ import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.service
-import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.vfs.VirtualFileManager
-import com.intellij.ui.components.JBScrollPane
 import com.ofya.jpoon.GlobalStateService
-import java.awt.Dimension
-import javax.swing.JComponent
-import javax.swing.JTextArea
+import com.ofya.jpoon.ui.FilePathsEditDialog
 
 class EditFilesListAction : AnAction() {
     override fun update(event: AnActionEvent) {
@@ -50,26 +46,4 @@ class EditFilesListAction : AnAction() {
         return virtualFile.path.startsWith(projectBasePath)
     }
 
-    private class FilePathsEditDialog(filesList: MutableList<String>) : DialogWrapper(true) {
-
-        private var textArea: JTextArea
-
-        init {
-            textArea = JTextArea(filesList.joinToString("\n"))
-            textArea.wrapStyleWord = true
-            textArea.lineWrap = true
-            init()
-            title = "JPoon Files"
-        }
-
-        override fun createCenterPanel(): JComponent {
-            val scrollPane = JBScrollPane(textArea);
-            scrollPane.preferredSize = Dimension(1000, 300)
-            return scrollPane
-        }
-
-        fun getFilesList(): List<String> {
-            return textArea.text.split("\n")
-        }
-    }
 }

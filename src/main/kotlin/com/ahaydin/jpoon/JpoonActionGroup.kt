@@ -1,4 +1,4 @@
-package com.ahaydin.jpoon.group
+package com.ahaydin.jpoon
 
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnActionEvent

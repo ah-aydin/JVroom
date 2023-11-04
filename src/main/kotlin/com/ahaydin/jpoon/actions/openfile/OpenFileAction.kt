@@ -1,6 +1,6 @@
 package com.ahaydin.jpoon.actions.openfile
 
-import com.ahaydin.jpoon.state.GlobalStateService
+import com.ahaydin.jpoon.GlobalStateService
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent

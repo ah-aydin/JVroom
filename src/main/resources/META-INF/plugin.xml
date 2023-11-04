@@ -27,8 +27,8 @@
     <extensions defaultExtensionNs="com.intellij">
     </extensions>
     <actions>
-        <group id="com.ahaydin.jpoon.group.JpoonActionGroup"
-               class="com.ahaydin.jpoon.group.JpoonActionGroup"
+        <group id="com.ahaydin.jpoon.JpoonActionGroup"
+               class="com.ahaydin.jpoon.JpoonActionGroup"
                text="Not Custom Action Group"
                popup="true">
 

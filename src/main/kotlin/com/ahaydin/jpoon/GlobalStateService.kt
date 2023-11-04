@@ -1,4 +1,4 @@
-package com.ahaydin.jpoon.state
+package com.ahaydin.jpoon
 
 import com.intellij.openapi.components.Service
 

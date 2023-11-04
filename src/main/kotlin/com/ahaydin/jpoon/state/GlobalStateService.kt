@@ -4,27 +4,27 @@ import com.intellij.openapi.components.Service
 
 @Service(Service.Level.PROJECT)
 class GlobalStateService {
-    private var filesList: MutableList<String> = mutableListOf()
+    private var filePaths: MutableList<String> = mutableListOf()
 
-    fun addFile(file: String) {
-        if (filesList.contains(file)) {
+    fun addFilePath(filePath: String) {
+        if (filePaths.contains(filePath)) {
             return
         }
-        filesList.add(file)
+        filePaths.add(filePath)
     }
 
-    fun getFileAt(index: Int): String? {
-        if (index >= filesList.size) {
+    fun getFilePathAt(index: Int): String? {
+        if (index >= filePaths.size) {
             return null
         }
-        return filesList[index]
+        return filePaths[index]
     }
 
-    fun setFiles(files: List<String>) {
-        this.filesList = files.toMutableList()
+    fun setFilePaths(filePaths: List<String>) {
+        this.filePaths = filePaths.toMutableList()
     }
 
-    fun getFiles(): MutableList<String> {
-        return filesList
+    fun getFilePaths(): MutableList<String> {
+        return filePaths
     }
 }

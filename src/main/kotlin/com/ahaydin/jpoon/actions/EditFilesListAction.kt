@@ -6,6 +6,7 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.ui.DialogWrapper
+import com.intellij.openapi.vfs.VirtualFileManager
 import com.intellij.ui.components.JBScrollPane
 import java.awt.Dimension
 import javax.swing.JComponent
@@ -24,15 +25,19 @@ class EditFilesListAction : AnAction() {
 
     override fun actionPerformed(event: AnActionEvent) {
         val project = event.project ?: return
+        val projectBasePath = project.basePath ?: return
         val globalStateService = project.service<GlobalStateService>()
 
-        val filesList = globalStateService.getFiles()
+        val filePaths = globalStateService.getFilePaths()
 
-        val filesListDialog = FilesListDialog(filesList)
-        filesListDialog.show()
+        val filePathsEditDialog = FilePathsEditDialog(filePaths)
+        filePathsEditDialog.show()
 
-        if (filesListDialog.isOK) {
-            globalStateService.setFiles(filesListDialog.getFilesList())
+        if (filePathsEditDialog.isOK) {
+            val editedFilePaths = filePathsEditDialog.getFilesList()
+            globalStateService.setFilePaths(editedFilePaths.stream().filter {
+                isProjectFile(it, projectBasePath)
+            }.toList())
         }
     }
 
@@ -40,7 +45,12 @@ class EditFilesListAction : AnAction() {
         return ActionUpdateThread.BGT
     }
 
-    private class FilesListDialog(filesList: MutableList<String>) : DialogWrapper(true) {
+    private fun isProjectFile(filePath: String, projectBasePath: String): Boolean {
+        val virtualFile = VirtualFileManager.getInstance().findFileByUrl("file://$filePath") ?: return false
+        return virtualFile.path.startsWith(projectBasePath)
+    }
+
+    private class FilePathsEditDialog(filesList: MutableList<String>) : DialogWrapper(true) {
 
         private var textArea: JTextArea
 

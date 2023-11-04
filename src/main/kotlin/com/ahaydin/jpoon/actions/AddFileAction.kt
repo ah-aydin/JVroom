@@ -33,7 +33,7 @@ class AddFileAction : AnAction() {
         }
         val selectedFile = selectedFiles[0]
 
-        project.service<GlobalStateService>().addFile(selectedFile.path)
+        project.service<GlobalStateService>().addFilePath(selectedFile.path)
     }
 
     override fun getActionUpdateThread(): ActionUpdateThread {

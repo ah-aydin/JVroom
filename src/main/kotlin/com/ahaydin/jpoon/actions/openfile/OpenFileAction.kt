@@ -30,13 +30,6 @@ open class OpenFileAction : AnAction() {
 
         if (fileToOpen != null) {
             val fileEditorManager = FileEditorManager.getInstance(project)
-
-            val selectedFiles = fileEditorManager.selectedFiles
-            if (selectedFiles.isNotEmpty()) {
-                val currentlyEditedFile = selectedFiles[0]
-                fileEditorManager.closeFile(currentlyEditedFile)
-            }
-
             fileEditorManager.openFile(fileToOpen, true)
         }
     }

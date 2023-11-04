@@ -35,7 +35,7 @@ class EditFilesListAction : AnAction() {
             val editedFilePaths = filePathsEditPopupDialog.getFilePaths()
             globalStateService.setFilePaths(editedFilePaths.stream().filter {
                 isProjectFile(it, projectBasePath)
-            }.toList().take(9))
+            }.toList())
         }
     }
 

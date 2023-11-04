@@ -9,8 +9,7 @@ import com.intellij.util.xmlb.XmlSerializerUtil
 
 @State(name = "com.ahaydin.jpoon.settings.SettingsState", storages = [Storage("JPoonSettingsPlugin.xml")])
 internal class SettingsState : PersistentStateComponent<SettingsState> {
-    var userId = "John Q. Public"
-    var ideaStatus = false
+    var closeFilesAfterOpenFile: Boolean = false;
 
     override fun getState(): SettingsState {
         return this

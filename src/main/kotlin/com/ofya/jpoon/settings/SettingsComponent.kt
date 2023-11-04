@@ -1,21 +1,17 @@
 package com.ofya.jpoon.settings
 
 import com.intellij.ui.components.JBCheckBox
-import com.intellij.ui.components.JBLabel
-import com.intellij.ui.components.JBTextField
 import com.intellij.util.ui.FormBuilder
 import javax.swing.JComponent
 import javax.swing.JPanel
 
 class SettingsComponent {
     private var myMainPanel: JPanel
-    private var myUserNameText = JBTextField()
-    private var myIdeaUserStatus = JBCheckBox("Do you use intelliJ")
+    private var closeFilesAfterOpenFile = JBCheckBox("Close the open files when switching between files")
 
     init {
         myMainPanel = FormBuilder.createFormBuilder()
-            .addLabeledComponent(JBLabel("Enter user name: "), myUserNameText)
-            .addComponent(myIdeaUserStatus, 1)
+            .addComponent(closeFilesAfterOpenFile, 1)
             .addComponentFillVertically(JPanel(), 0)
             .panel
     }
@@ -25,22 +21,14 @@ class SettingsComponent {
     }
 
     fun getPreferredFocusedComponent(): JComponent {
-        return myUserNameText
+        return closeFilesAfterOpenFile
     }
 
-    fun getUserNameText(): String {
-        return myUserNameText.text
+    fun getCloseFilesAfterOpenFile(): Boolean {
+        return closeFilesAfterOpenFile.isSelected
     }
 
-    fun setUserNameText(newText: String) {
-        myUserNameText.text = newText
-    }
-
-    fun getIdeaUserStatus(): Boolean {
-        return myIdeaUserStatus.isSelected
-    }
-
-    fun setIdeaUserStatus(newStatus: Boolean) {
-        myIdeaUserStatus.isSelected = newStatus
+    fun setCloseFilesAfterOpenFile(newStatus: Boolean) {
+        closeFilesAfterOpenFile.isSelected = newStatus
     }
 }

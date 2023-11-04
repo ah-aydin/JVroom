@@ -23,24 +23,19 @@ class SettingsConfigurable : Configurable {
 
     override fun isModified(): Boolean {
         val settings: SettingsState = SettingsState.getInstance()
-        var modified: Boolean = settingsComponent.getUserNameText() != settings.userId
-        modified = modified or (settingsComponent.getIdeaUserStatus() != settings.ideaStatus)
-        return modified
+        return (settingsComponent.getCloseFilesAfterOpenFile() != settings.closeFilesAfterOpenFile)
     }
 
     override fun apply() {
         val settings: SettingsState = SettingsState.getInstance()
-        settings.userId = settingsComponent.getUserNameText()
-        settings.ideaStatus = settingsComponent.getIdeaUserStatus()
+        settings.closeFilesAfterOpenFile = settingsComponent.getCloseFilesAfterOpenFile()
     }
 
     override fun reset() {
         val settings: SettingsState = SettingsState.getInstance()
-        settingsComponent.setUserNameText(settings.userId)
-        settingsComponent.setIdeaUserStatus(settings.ideaStatus)
+        settingsComponent.setCloseFilesAfterOpenFile(settings.closeFilesAfterOpenFile)
     }
 
     override fun disposeUIResources() {
-//        settingsComponent = null
     }
 }

@@ -37,7 +37,7 @@ class EditFilesListAction : AnAction() {
             val editedFilePaths = filePathsEditDialog.getFilesList()
             globalStateService.setFilePaths(editedFilePaths.stream().filter {
                 isProjectFile(it, projectBasePath)
-            }.toList())
+            }.toList().take(9))
         }
     }
 
@@ -59,7 +59,7 @@ class EditFilesListAction : AnAction() {
             textArea.wrapStyleWord = true
             textArea.lineWrap = true
             init()
-            title = "JPoon"
+            title = "JPoon Files"
         }
 
         override fun createCenterPanel(): JComponent {
@@ -69,7 +69,6 @@ class EditFilesListAction : AnAction() {
         }
 
         fun getFilesList(): List<String> {
-            // TODO filter out which string coincide with a file
             return textArea.text.split("\n")
         }
     }

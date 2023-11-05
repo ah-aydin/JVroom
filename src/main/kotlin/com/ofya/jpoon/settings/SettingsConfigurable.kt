@@ -30,6 +30,7 @@ class SettingsConfigurable : Configurable {
     override fun apply() {
         val settings: SettingsState = SettingsState.getInstance()
         settings.closeFilesAfterOpenFile = settingsComponent.getCloseFilesAfterOpenFile()
+        settings.switchToSelectedFile = settingsComponent.getSwitchToSelectedFile()
     }
 
     override fun reset() {

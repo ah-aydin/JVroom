@@ -13,12 +13,9 @@ fun openFile(event: AnActionEvent, index: Int) {
     val fileEditorManager = FileEditorManager.getInstance(project)
 
     val fileToOpenPath = project.service<GlobalStateService>().getFilePathAt(index) ?: return
-    val fileToOpen = VirtualFileManager.getInstance().findFileByUrl("file://$fileToOpenPath")
+    val fileToOpen = VirtualFileManager.getInstance().findFileByUrl("file://$fileToOpenPath") ?: return
 
-
-    if (fileToOpen != null) {
-        fileEditorManager.openFile(fileToOpen, true)
-    }
+    fileEditorManager.openFile(fileToOpen, true)
 
     if (settingsState.closeFilesAfterOpenFile) {
         fileEditorManager.openFiles.forEach { openFile ->

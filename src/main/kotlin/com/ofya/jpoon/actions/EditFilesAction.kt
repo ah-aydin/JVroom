@@ -6,6 +6,8 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.vfs.VirtualFileManager
 import com.ofya.jpoon.GlobalStateService
+import com.ofya.jpoon.actions.openfile.openFile
+import com.ofya.jpoon.settings.SettingsState
 import com.ofya.jpoon.ui.EditFilePathsPopupDialogUI
 
 class EditFilesAction : AnAction() {
@@ -23,6 +25,7 @@ class EditFilesAction : AnAction() {
         val project = event.project ?: return
         val projectBasePath = project.basePath ?: return
         val globalStateService = project.service<GlobalStateService>()
+        val settingsState = SettingsState.getInstance()
 
         val filePaths = globalStateService.getFilePaths()
 
@@ -30,12 +33,14 @@ class EditFilesAction : AnAction() {
         val editFilePathsPopupDialogUI = EditFilePathsPopupDialogUI(filePaths)
         editFilePathsPopupDialogUI.show()
 
-
         if (editFilePathsPopupDialogUI.isOK) {
             val editedFilePaths = editFilePathsPopupDialogUI.getFilePaths()
             globalStateService.setFilePaths(editedFilePaths.stream().filter {
                 isProjectFile(it, projectBasePath)
             }.toList())
+            if (settingsState.switchToSelectedFile) {
+                openFile(event, editFilePathsPopupDialogUI.getSelectedIndex())
+            }
         }
     }
 

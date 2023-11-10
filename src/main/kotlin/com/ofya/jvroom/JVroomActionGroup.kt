@@ -5,7 +5,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.DefaultActionGroup
 import com.intellij.openapi.fileEditor.FileEditorManager
 
-class JpoonActionGroup : DefaultActionGroup() {
+class JVroomActionGroup : DefaultActionGroup() {
     override fun update(event: AnActionEvent) {
         val project = event.project
         if (project == null) {

@@ -26,7 +26,7 @@ class EditFilePathsPopupDialogUI(filePaths: List<String>) : DialogWrapper(true) 
             }
         )
         init()
-        title = "JPoon Files"
+        title = "JVroom Files"
 
     }
 
@@ -97,6 +97,10 @@ class EditFilePathsPopupDialogUI(filePaths: List<String>) : DialogWrapper(true) 
                 doCancelAction()
             }
         }
+    }
+
+    fun isEmpty(): Boolean {
+        return filePathsList.model.size == 0
     }
 
     fun getFilePaths(): List<String> {

@@ -4,11 +4,13 @@ import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.service
+import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.vfs.VirtualFileManager
 import com.ofya.jvroom.GlobalStateService
-import com.ofya.jvroom.actions.openfile.openFile
 import com.ofya.jvroom.settings.SettingsState
 import com.ofya.jvroom.ui.EditFilePathsPopupDialogUI
+import com.ofya.jvroom.utils.closeAllFiles
+import com.ofya.jvroom.utils.openFile
 
 class EditFilesAction : AnAction() {
     override fun update(event: AnActionEvent) {
@@ -33,11 +35,20 @@ class EditFilesAction : AnAction() {
         val editFilePathsPopupDialogUI = EditFilePathsPopupDialogUI(filePaths)
         editFilePathsPopupDialogUI.show()
 
-        if (editFilePathsPopupDialogUI.isOK) {
+        if (editFilePathsPopupDialogUI.isOK && !editFilePathsPopupDialogUI.isEmpty()) {
             val editedFilePaths = editFilePathsPopupDialogUI.getFilePaths()
             globalStateService.setFilePaths(editedFilePaths.stream().filter {
                 isProjectFile(it, projectBasePath)
             }.toList())
+
+            if (settingsState.reorderFilesAfterEdit) {
+                closeAllFiles(event)
+                for (i in 0 until (globalStateService.getFileCount())) {
+                    openFile(event, i)
+                }
+            }
+
+
             if (settingsState.switchToSelectedFile) {
                 openFile(event, editFilePathsPopupDialogUI.getSelectedIndex())
             }

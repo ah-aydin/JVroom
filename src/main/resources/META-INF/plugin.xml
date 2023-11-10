@@ -24,15 +24,15 @@
         <applicationConfigurable parentId="editor"
                                  id="com.ofya.jvroom.settings.SettingsConfigurable"
                                  instance="com.ofya.jvroom.settings.SettingsConfigurable"
-                                 displayName="JPoon"
+                                 displayName="JVroom"
         />
         <applicationService serviceImplementation="com.ofya.jvroom.settings.SettingsState"/>
     </extensions>
 
     <actions>
-        <group id="com.ofya.jvroom.JpoonActionGroup"
-               class="com.ofya.jvroom.JpoonActionGroup"
-               text="JPoon"
+        <group id="com.ofya.jvroom.JVroomActionGroup"
+               class="com.ofya.jvroom.JVroomActionGroup"
+               text="JVroom"
                popup="true">
 
             <action id="com.ofya.jvroom.actions.AddFileAction"

@@ -9,7 +9,7 @@ class SettingsConfigurable : Configurable {
 
     private lateinit var settingsComponent: SettingsComponent
     override fun getDisplayName(): @Nls(capitalization = Nls.Capitalization.Title) String {
-        return "JPoon Settings"
+        return "JVroom Settings"
     }
 
     override fun getPreferredFocusedComponent(): JComponent {
@@ -24,19 +24,19 @@ class SettingsConfigurable : Configurable {
     override fun isModified(): Boolean {
         val settings: SettingsState = SettingsState.getInstance()
         return settingsComponent.getSwitchToSelectedFile() != settings.switchToSelectedFile ||
-                settingsComponent.getCloseFilesAfterOpenFile() != settings.closeFilesAfterOpenFile
+                settingsComponent.getReorderFilesAfterEdit() != settings.reorderFilesAfterEdit
     }
 
     override fun apply() {
         val settings: SettingsState = SettingsState.getInstance()
-        settings.closeFilesAfterOpenFile = settingsComponent.getCloseFilesAfterOpenFile()
         settings.switchToSelectedFile = settingsComponent.getSwitchToSelectedFile()
+        settings.reorderFilesAfterEdit = settingsComponent.getReorderFilesAfterEdit()
     }
 
     override fun reset() {
         val settings: SettingsState = SettingsState.getInstance()
-        settingsComponent.setCloseFilesAfterOpenFile(settings.closeFilesAfterOpenFile)
         settingsComponent.setSwitchToSelectedFile(settings.switchToSelectedFile)
+        settingsComponent.setReorderFilesAfterEdit(settings.reorderFilesAfterEdit)
     }
 
     override fun disposeUIResources() {

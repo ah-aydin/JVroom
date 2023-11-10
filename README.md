@@ -18,8 +18,12 @@ map <leader>e :action com.ofya.jvroom.actions.EditFilesAction<CR>
 map <leader>a :action com.ofya.jvroom.actions.AddFileAction<CR>
 ```
 - Navigate between files using `Alt+a`, `Alt+s` and so on. You can remap them or just bind them to vim keybindings
+  - `map <M-a> :action com.ofya.jvroom.actions.openfile.OpenFileAction[0-8]`
 - EditFilesAction usage
   - use `j` and `k` to move down and up the list of files
   - use `Shift+J` and `Shift+K` to move the selected file down and up the list
   - double click `d` to remove file from list
   - enter to save changes to list
+
+## Notes
+- Does not play nice if you want 2 files open side by side. It is made to work with only a single file open at a time

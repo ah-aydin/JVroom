@@ -1,4 +1,4 @@
-package com.ofya.jvroom.actions.openfile
+package com.ofya.jvroom.utils
 
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.service
@@ -16,15 +16,11 @@ fun openFile(event: AnActionEvent, index: Int) {
     val fileToOpen = VirtualFileManager.getInstance().findFileByUrl("file://$fileToOpenPath") ?: return
 
     fileEditorManager.openFile(fileToOpen, true)
+}
 
-    if (settingsState.closeFilesAfterOpenFile) {
-        fileEditorManager.openFiles.forEach { openFile ->
-            run {
-                if (openFile == fileToOpen) {
-                    return
-                }
-                fileEditorManager.closeFile(openFile)
-            }
-        }
-    }
+fun closeAllFiles(event: AnActionEvent) {
+    val project = event.project ?: return
+    val fileEditorManager = FileEditorManager.getInstance(project)
+
+    fileEditorManager.openFiles.forEach { openFile -> run { fileEditorManager.closeFile(openFile) } }
 }

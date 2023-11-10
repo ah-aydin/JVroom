@@ -27,4 +27,8 @@ class GlobalStateService {
     fun getFilePaths(): MutableList<String> {
         return filePaths
     }
+
+    fun getFileCount(): Int {
+        return filePaths.size
+    }
 }

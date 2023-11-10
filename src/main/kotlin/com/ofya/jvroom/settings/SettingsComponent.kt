@@ -7,13 +7,13 @@ import javax.swing.JPanel
 
 class SettingsComponent {
     private var mainPanel: JPanel
-    private var closeFilesAfterOpenFile = JBCheckBox("Close the open files when switching between files")
-    private var switchToSelectedFile = JBCheckBox("Switch to selected file after editing JPoon files")
+    private var switchToSelectedFile = JBCheckBox("Switch to selected file after editing JVroom files")
+    private var reorderFilesAfterEdit = JBCheckBox("Reorder files after editing JVroom files (closes files not in list)")
 
     init {
         mainPanel = FormBuilder.createFormBuilder()
-            .addComponent(closeFilesAfterOpenFile, 1)
             .addComponent(switchToSelectedFile, 2)
+            .addComponent(reorderFilesAfterEdit, 3)
             .addComponentFillVertically(JPanel(), 0)
             .panel
     }
@@ -23,15 +23,7 @@ class SettingsComponent {
     }
 
     fun getPreferredFocusedComponent(): JComponent {
-        return closeFilesAfterOpenFile
-    }
-
-    fun getCloseFilesAfterOpenFile(): Boolean {
-        return closeFilesAfterOpenFile.isSelected
-    }
-
-    fun setCloseFilesAfterOpenFile(newStatus: Boolean) {
-        closeFilesAfterOpenFile.isSelected = newStatus
+        return switchToSelectedFile
     }
 
     fun getSwitchToSelectedFile(): Boolean {
@@ -40,5 +32,13 @@ class SettingsComponent {
 
     fun setSwitchToSelectedFile(newStatus: Boolean) {
         switchToSelectedFile.isSelected = newStatus
+    }
+
+    fun getReorderFilesAfterEdit(): Boolean {
+        return reorderFilesAfterEdit.isSelected
+    }
+
+    fun setReorderFilesAfterEdit(newStatus: Boolean) {
+        reorderFilesAfterEdit.isSelected = newStatus
     }
 }

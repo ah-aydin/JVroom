@@ -7,10 +7,10 @@ import com.intellij.openapi.components.Storage
 import com.intellij.util.xmlb.XmlSerializerUtil
 
 
-@State(name = "com.ahaydin.jpoon.settings.SettingsState", storages = [Storage("JPoonSettingsPlugin.xml")])
+@State(name = "com.ofya.jvroom.settings.SettingsState", storages = [Storage("JVroomSettingsPlugin.xml")])
 internal class SettingsState : PersistentStateComponent<SettingsState> {
-    var closeFilesAfterOpenFile: Boolean = false
     var switchToSelectedFile: Boolean = true
+    var reorderFilesAfterEdit: Boolean = true
 
     override fun getState(): SettingsState {
         return this

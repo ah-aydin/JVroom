@@ -39,13 +39,11 @@
                     class="com.ofya.jvroom.actions.AddFileAction"
                     text="Add File to List"
             >
-                <keyboard-shortcut keymap="$default" first-keystroke="alt w"/>
             </action>
             <action id="com.ofya.jvroom.actions.EditFilesAction"
                     class="com.ofya.jvroom.actions.EditFilesAction"
                     text="Edit Files"
             >
-                <keyboard-shortcut keymap="$default" first-keystroke="alt e"/>
             </action>
 
 

@@ -2,15 +2,18 @@
     <id>com.ofya.JVroom</id>
 
     <name>JVroom</name>
+    <vendor>Ofya</vendor>
 
     <description><![CDATA[
     <h3>Problem</h3>
 
-    - you like using neovim
-    - you like using <a href="https://github.com/ThePrimeagen/harpoon">Harpoon</a> to jump between the small set of files that you work on
-    - you have to program in java at your job, so you have to use intelliJ
+    <ul>
+      <li>you like using neovim</li>
+      <li>you like using <a href="https://github.com/ThePrimeagen/harpoon">Harpoon</a> to jump between the small set of files that you work on</li>
+      <li>you have to program in java at your job, so you have to use intelliJ</li>
+    </ul>
 
-    Details on how to setup: <a href="https://github.com/ah-aydin/JVroom>GitHub</a>
+    Details on how to setup: <a href="https://github.com/ah-aydin/JVroom">GitHub</a>
 
     ]]></description>
 

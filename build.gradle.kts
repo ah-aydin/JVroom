@@ -4,8 +4,8 @@ plugins {
   id("org.jetbrains.intellij") version "1.15.0"
 }
 
-group = "com.ahaydin"
-version = "1.0-SNAPSHOT"
+group = "com.ofya"
+version = "1.0.1"
 
 repositories {
   mavenCentral()
@@ -36,9 +36,9 @@ tasks {
   }
 
   signPlugin {
-    certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
-    privateKey.set(System.getenv("PRIVATE_KEY"))
-    password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
+    certificateChainFile.set(file("../Keys/chain.crt"))
+    privateKeyFile.set(file("../Keys/private.pem"))
+    password.set(System.getenv("PRIVATE_KEY_PASS"))
   }
 
   publishPlugin {

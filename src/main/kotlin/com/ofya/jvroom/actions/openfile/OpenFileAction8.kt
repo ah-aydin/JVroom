@@ -1,9 +1,9 @@
-package com.ofya.jpoon.actions.openfile
+package com.ofya.jvroom.actions.openfile
 
 import com.intellij.openapi.actionSystem.AnActionEvent
 
-class OpenFileAction0 : OpenFileAction() {
+class OpenFileAction8 : OpenFileAction() {
     override fun actionPerformed(event: AnActionEvent) {
-        openFile(event, 0)
+        openFile(event, 8)
     }
 }

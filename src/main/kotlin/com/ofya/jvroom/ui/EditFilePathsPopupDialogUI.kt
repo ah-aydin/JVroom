@@ -1,4 +1,4 @@
-package com.ofya.jpoon.ui
+package com.ofya.jvroom.ui
 
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.ui.components.JBList

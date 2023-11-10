@@ -1,11 +1,11 @@
-package com.ofya.jpoon.actions
+package com.ofya.jvroom.actions
 
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.fileEditor.FileEditorManager
-import com.ofya.jpoon.GlobalStateService
+import com.ofya.jvroom.GlobalStateService
 
 class AddFileAction : AnAction() {
 

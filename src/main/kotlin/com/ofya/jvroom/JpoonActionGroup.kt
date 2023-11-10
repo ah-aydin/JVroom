@@ -1,11 +1,11 @@
-package com.ofya.jpoon.actions.openfile
+package com.ofya.jvroom
 
 import com.intellij.openapi.actionSystem.ActionUpdateThread
-import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
+import com.intellij.openapi.actionSystem.DefaultActionGroup
 import com.intellij.openapi.fileEditor.FileEditorManager
 
-abstract class OpenFileAction : AnAction() {
+class JpoonActionGroup : DefaultActionGroup() {
     override fun update(event: AnActionEvent) {
         val project = event.project
         if (project == null) {
@@ -18,8 +18,6 @@ abstract class OpenFileAction : AnAction() {
         }
         event.presentation.isEnabledAndVisible = true
     }
-
-    abstract override fun actionPerformed(event: AnActionEvent)
 
     override fun getActionUpdateThread(): ActionUpdateThread {
         return ActionUpdateThread.BGT

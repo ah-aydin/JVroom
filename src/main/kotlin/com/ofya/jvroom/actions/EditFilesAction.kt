@@ -1,14 +1,14 @@
-package com.ofya.jpoon.actions
+package com.ofya.jvroom.actions
 
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.vfs.VirtualFileManager
-import com.ofya.jpoon.GlobalStateService
-import com.ofya.jpoon.actions.openfile.openFile
-import com.ofya.jpoon.settings.SettingsState
-import com.ofya.jpoon.ui.EditFilePathsPopupDialogUI
+import com.ofya.jvroom.GlobalStateService
+import com.ofya.jvroom.actions.openfile.openFile
+import com.ofya.jvroom.settings.SettingsState
+import com.ofya.jvroom.ui.EditFilePathsPopupDialogUI
 
 class EditFilesAction : AnAction() {
     override fun update(event: AnActionEvent) {

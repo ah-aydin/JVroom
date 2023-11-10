@@ -1,11 +1,11 @@
-package com.ofya.jpoon.actions.openfile
+package com.ofya.jvroom.actions.openfile
 
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.vfs.VirtualFileManager
-import com.ofya.jpoon.GlobalStateService
-import com.ofya.jpoon.settings.SettingsState
+import com.ofya.jvroom.GlobalStateService
+import com.ofya.jvroom.settings.SettingsState
 
 fun openFile(event: AnActionEvent, index: Int) {
     val project = event.project ?: return

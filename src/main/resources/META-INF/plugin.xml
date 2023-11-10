@@ -1,33 +1,17 @@
 <idea-plugin>
-    <id>com.ofya.JPoon</id>
+    <id>com.ofya.JVroom</id>
 
-    <name>JPoon</name>
+    <name>JVroom</name>
 
     <description><![CDATA[
-    Inspired by the <a href="https://github.com/ThePrimeagen/harpoon">Harpoon</a> plugin made for neovim, this plugin
-    helps to navigate between a set of selected files (up to 9) by utilizing keyboard shortcuts.
-    Usage:
-    <ul>
-        <li>Add the focused file to the list (Alt+W default keybinding)</li>
-        <li>
-            Default keybindings for navigation
-            <ul>
-                <li>Alt+a switch to the first file</li>
-                <li>Alt+s switch to the second file</li>
-                <li>Alt+d switch to the third file</li>
-                <li>And so on</li>
-            </ul>
-       </li>
-       <li>Edit JPoon files list (Alt+E default keybinding)
-            <ul>
-                <li><b>J</b> <b>K</b> to move up and down</li>
-                <li><b>Shift+J</b> <b>Shift+K</b> to move the selected file location up and down</li>
-                <li>Double click <b>D</b> to remove file from list</li>
-                <li><b>Enter</b> to save changes <b>Esc</b> to discard</li>
-            </ul>
-       </li>
-    </ul>
-    <a href="https://github.com/ah-aydin/JPoon">Plugin repo</a>
+    <h3>Problem</h3>
+
+    - you like using neovim
+    - you like using <a href="https://github.com/ThePrimeagen/harpoon">Harpoon</a> to jump between the small set of files that you work on
+    - you have to program in java at your job, so you have to use intelliJ
+
+    More details: <a href="https://github.com/ah-aydin/JVroom>GitHub</a>
+
     ]]></description>
 
     <!-- Product and plugin compatibility requirements.
@@ -38,81 +22,81 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <applicationConfigurable parentId="editor"
-                                 id="com.ofya.jpoon.settings.SettingsConfigurable"
-                                 instance="com.ofya.jpoon.settings.SettingsConfigurable"
+                                 id="com.ofya.jvroom.settings.SettingsConfigurable"
+                                 instance="com.ofya.jvroom.settings.SettingsConfigurable"
                                  displayName="JPoon"
         />
-        <applicationService serviceImplementation="com.ofya.jpoon.settings.SettingsState"/>
+        <applicationService serviceImplementation="com.ofya.jvroom.settings.SettingsState"/>
     </extensions>
 
     <actions>
-        <group id="com.ofya.jpoon.JpoonActionGroup"
-               class="com.ofya.jpoon.JpoonActionGroup"
+        <group id="com.ofya.jvroom.JpoonActionGroup"
+               class="com.ofya.jvroom.JpoonActionGroup"
                text="JPoon"
                popup="true">
 
-            <action id="com.ofya.jpoon.actions.AddFileAction"
-                    class="com.ofya.jpoon.actions.AddFileAction"
+            <action id="com.ofya.jvroom.actions.AddFileAction"
+                    class="com.ofya.jvroom.actions.AddFileAction"
                     text="Add File to List"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt w"/>
             </action>
-            <action id="com.ofya.jpoon.actions.EditFilesAction"
-                    class="com.ofya.jpoon.actions.EditFilesAction"
+            <action id="com.ofya.jvroom.actions.EditFilesAction"
+                    class="com.ofya.jvroom.actions.EditFilesAction"
                     text="Edit Files"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt e"/>
             </action>
 
 
-            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction0"
-                    class="com.ofya.jpoon.actions.openfile.OpenFileAction0"
+            <action id="com.ofya.jvroom.actions.openfile.OpenFileAction0"
+                    class="com.ofya.jvroom.actions.openfile.OpenFileAction0"
                     text="Open File 0"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt a"/>
             </action>
-            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction1"
-                    class="com.ofya.jpoon.actions.openfile.OpenFileAction1"
+            <action id="com.ofya.jvroom.actions.openfile.OpenFileAction1"
+                    class="com.ofya.jvroom.actions.openfile.OpenFileAction1"
                     text="Open File 1">
                 <keyboard-shortcut keymap="$default" first-keystroke="alt s"/>
             </action>
-            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction2"
-                    class="com.ofya.jpoon.actions.openfile.OpenFileAction2"
+            <action id="com.ofya.jvroom.actions.openfile.OpenFileAction2"
+                    class="com.ofya.jvroom.actions.openfile.OpenFileAction2"
                     text="Open File 2">
                 <keyboard-shortcut keymap="$default" first-keystroke="alt d"/>
             </action>
-            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction3"
-                    class="com.ofya.jpoon.actions.openfile.OpenFileAction3"
+            <action id="com.ofya.jvroom.actions.openfile.OpenFileAction3"
+                    class="com.ofya.jvroom.actions.openfile.OpenFileAction3"
                     text="Open File 3"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt f"/>
             </action>
-            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction4"
-                    class="com.ofya.jpoon.actions.openfile.OpenFileAction4"
+            <action id="com.ofya.jvroom.actions.openfile.OpenFileAction4"
+                    class="com.ofya.jvroom.actions.openfile.OpenFileAction4"
                     text="Open File 4"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt g"/>
             </action>
-            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction5"
-                    class="com.ofya.jpoon.actions.openfile.OpenFileAction5"
+            <action id="com.ofya.jvroom.actions.openfile.OpenFileAction5"
+                    class="com.ofya.jvroom.actions.openfile.OpenFileAction5"
                     text="Open File 5"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt h"/>
             </action>
-            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction6"
-                    class="com.ofya.jpoon.actions.openfile.OpenFileAction6"
+            <action id="com.ofya.jvroom.actions.openfile.OpenFileAction6"
+                    class="com.ofya.jvroom.actions.openfile.OpenFileAction6"
                     text="Open File 6"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt j"/>
             </action>
-            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction7"
-                    class="com.ofya.jpoon.actions.openfile.OpenFileAction7"
+            <action id="com.ofya.jvroom.actions.openfile.OpenFileAction7"
+                    class="com.ofya.jvroom.actions.openfile.OpenFileAction7"
                     text="Open File 7"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt k"/>
             </action>
-            <action id="com.ofya.jpoon.actions.openfile.OpenFileAction8"
-                    class="com.ofya.jpoon.actions.openfile.OpenFileAction8"
+            <action id="com.ofya.jvroom.actions.openfile.OpenFileAction8"
+                    class="com.ofya.jvroom.actions.openfile.OpenFileAction8"
                     text="Open File 8"
             >
                 <keyboard-shortcut keymap="$default" first-keystroke="alt l"/>

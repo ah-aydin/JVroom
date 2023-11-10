@@ -1,4 +1,4 @@
-package com.ofya.jpoon
+package com.ofya.jvroom
 
 import com.intellij.openapi.components.Service
 

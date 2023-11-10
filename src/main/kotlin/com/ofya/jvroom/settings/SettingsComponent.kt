@@ -1,4 +1,4 @@
-package com.ofya.jpoon.settings
+package com.ofya.jvroom.settings
 
 import com.intellij.ui.components.JBCheckBox
 import com.intellij.util.ui.FormBuilder

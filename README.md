@@ -2,8 +2,10 @@
 
 ## Problem
 
-- you like using neovim
-- you like using [Harpoon](https://github.com/ThePrimeagen/harpoon) to jump between the small set of files that you work on
+- you like using neovim or vim motions
+- you mainly work in a single page (you don't have 2 files open side-by-side in the same project
+- you like not having to use the mouse while writing code
+- if you use neovim, you like using [Harpoon](https://github.com/ThePrimeagen/harpoon) to jump between the small set of files that you work on
 - you have to program in java at your job, so you have to use intelliJ
 
 ## Usage

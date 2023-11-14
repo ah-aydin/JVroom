@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.ofya"
-version = "2023-11-13"
+version = "2023-11-14"
 
 repositories {
   mavenCentral()

@@ -5,16 +5,18 @@
     <vendor>Ofya</vendor>
 
     <description><![CDATA[
-    <h3>Who is this for</h3>
+    <h3>Who is this for?</h3>
 
     <ul>
       <li>you like using neovim or vim motions</li>
       <li>you like not having to use the mouse while writing code</li>
-      <li>you mainly work in a single page (you don't have 2 files open side-by-side in the same project</li>
-      <li>if you use neovim,you like using <a href="https://github.com/ThePrimeagen/harpoon">Harpoon</a> to jump between
+      <li>you mainly work in a single page (you don't have 2 files open side-by-side in the same project)</li>
+      <li>if you use neovim, you like using <a href="https://github.com/ThePrimeagen/harpoon">Harpoon</a> to jump between
         the small set of files that you work on</li>
       <li>you have to program in java at your job, so you have to use intelliJ</li>
     </ul>
+
+    <br>
 
     Details on how to setup: <a href="https://github.com/ah-aydin/JVroom">GitHub</a>
 

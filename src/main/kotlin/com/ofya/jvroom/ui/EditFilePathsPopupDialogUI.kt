@@ -91,7 +91,7 @@ class EditFilePathsPopupDialogUI(filePaths: List<String>) : DialogWrapper(true) 
                 previousDeleteKeyPress = currentTime
             }
             if (e.keyCode == KeyEvent.VK_ENTER) {
-                performOKAction()
+                doOKAction();
             }
             if (e.keyCode == KeyEvent.VK_ESCAPE) {
                 doCancelAction()

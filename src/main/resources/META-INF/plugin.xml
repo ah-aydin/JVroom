@@ -7,8 +7,9 @@
     <description><![CDATA[
     Navigate efficiently between a small set of files that you want to work on without multiple keystrokes or mouse input.
 
-    <h3>Who is this for?</h3>
+    <br>
 
+    <h3>Who is this for?</h3>
     <ul>
       <li>you like using neovim or vim motions</li>
       <li>you like not having to use the mouse while writing code</li>

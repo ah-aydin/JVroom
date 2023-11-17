@@ -35,7 +35,7 @@ class EditFilesAction : AnAction() {
         val editFilePathsPopupDialogUI = EditFilePathsPopupDialogUI(filePaths)
         editFilePathsPopupDialogUI.show()
 
-        if (editFilePathsPopupDialogUI.isOK && !editFilePathsPopupDialogUI.isEmpty()) {
+        if (editFilePathsPopupDialogUI.isOK) {
             val editedFilePaths = editFilePathsPopupDialogUI.getFilePaths()
             globalStateService.setFilePaths(editedFilePaths.stream().filter {
                 isProjectFile(it, projectBasePath)
@@ -49,7 +49,7 @@ class EditFilesAction : AnAction() {
             }
 
 
-            if (settingsState.switchToSelectedFile) {
+            if (settingsState.switchToSelectedFile && !editFilePathsPopupDialogUI.isEmpty()) {
                 openFile(event, editFilePathsPopupDialogUI.getSelectedIndex())
             }
         }

@@ -81,11 +81,12 @@ class EditFilePathsPopupDialogUI(filePaths: List<String>) : DialogWrapper(true) 
                 if (currentTime - previousDeleteKeyPress < doubleKeyPressMaxDelayInMilliseconds) {
                     previousDeleteKeyPress = 0
                     val model = filePathsList.model as DefaultListModel
+                    val selectedIndex = filePathsList.selectedIndex
                     model.remove(filePathsList.selectedIndex)
-                    filePathsList.selectedIndex = if (filePathsList.selectedIndex >= model.size) {
+                    filePathsList.selectedIndex = if (selectedIndex >= model.size) {
                         model.size - 1
                     } else {
-                        filePathsList.selectedIndex
+                        selectedIndex
                     }
                 }
                 previousDeleteKeyPress = currentTime

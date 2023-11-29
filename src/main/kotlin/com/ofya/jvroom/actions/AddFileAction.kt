@@ -9,34 +9,34 @@ import com.ofya.jvroom.GlobalStateService
 
 class AddFileAction : AnAction() {
 
-    override fun update(event: AnActionEvent) {
-        val project = event.project
-        if (project == null) {
-            event.presentation.isEnabledAndVisible = false
-            return
-        }
-
-        val editor = FileEditorManager.getInstance(project).getSelectedEditor()
-        if (editor == null) {
-            event.presentation.isEnabledAndVisible = false
-            return
-        }
-        event.presentation.isEnabledAndVisible = true
+  override fun update(event: AnActionEvent) {
+    val project = event.project
+    if (project == null) {
+      event.presentation.isEnabledAndVisible = false
+      return
     }
 
-    override fun actionPerformed(event: AnActionEvent) {
-        val project = event.project ?: return
-
-        val selectedFiles = FileEditorManager.getInstance(project).selectedFiles
-        if (selectedFiles.isEmpty()) {
-            return
-        }
-        val selectedFile = selectedFiles[0]
-
-        project.service<GlobalStateService>().addFilePath(selectedFile.path)
+    val editor = FileEditorManager.getInstance(project).getSelectedEditor()
+    if (editor == null) {
+      event.presentation.isEnabledAndVisible = false
+      return
     }
+    event.presentation.isEnabledAndVisible = true
+  }
 
-    override fun getActionUpdateThread(): ActionUpdateThread {
-        return ActionUpdateThread.BGT
+  override fun actionPerformed(event: AnActionEvent) {
+    val project = event.project ?: return
+
+    val selectedFiles = FileEditorManager.getInstance(project).selectedFiles
+    if (selectedFiles.isEmpty()) {
+      return
     }
+    val selectedFile = selectedFiles[0]
+
+    project.service<GlobalStateService>().addFilePath(selectedFile.path)
+  }
+
+  override fun getActionUpdateThread(): ActionUpdateThread {
+    return ActionUpdateThread.BGT
+  }
 }

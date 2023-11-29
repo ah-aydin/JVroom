@@ -4,7 +4,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.ofya.jvroom.utils.openFile
 
 class OpenFileAction3 : OpenFileAction() {
-    override fun actionPerformed(event: AnActionEvent) {
-        openFile(event, 3)
-    }
+  override fun actionPerformed(event: AnActionEvent) {
+    openFile(event, 3)
+  }
 }

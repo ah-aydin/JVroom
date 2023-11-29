@@ -8,19 +8,19 @@ import com.ofya.jvroom.GlobalStateService
 import com.ofya.jvroom.settings.SettingsState
 
 fun openFile(event: AnActionEvent, index: Int) {
-    val project = event.project ?: return
-    val settingsState = SettingsState.getInstance()
-    val fileEditorManager = FileEditorManager.getInstance(project)
+  val project = event.project ?: return
+  val settingsState = SettingsState.getInstance()
+  val fileEditorManager = FileEditorManager.getInstance(project)
 
-    val fileToOpenPath = project.service<GlobalStateService>().getFilePathAt(index) ?: return
-    val fileToOpen = VirtualFileManager.getInstance().findFileByUrl("file://$fileToOpenPath") ?: return
+  val fileToOpenPath = project.service<GlobalStateService>().getFilePathAt(index) ?: return
+  val fileToOpen = VirtualFileManager.getInstance().findFileByUrl("file://$fileToOpenPath") ?: return
 
-    fileEditorManager.openFile(fileToOpen, true)
+  fileEditorManager.openFile(fileToOpen, true)
 }
 
 fun closeAllFiles(event: AnActionEvent) {
-    val project = event.project ?: return
-    val fileEditorManager = FileEditorManager.getInstance(project)
+  val project = event.project ?: return
+  val fileEditorManager = FileEditorManager.getInstance(project)
 
-    fileEditorManager.openFiles.forEach { openFile -> run { fileEditorManager.closeFile(openFile) } }
+  fileEditorManager.openFiles.forEach { openFile -> run { fileEditorManager.closeFile(openFile) } }
 }

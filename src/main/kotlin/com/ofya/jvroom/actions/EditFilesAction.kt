@@ -31,7 +31,6 @@ class EditFilesAction : AnAction() {
 
         val filePaths = globalStateService.getFilePaths()
 
-
         val editFilePathsPopupDialogUI = EditFilePathsPopupDialogUI(filePaths)
         editFilePathsPopupDialogUI.show()
 
@@ -48,7 +47,6 @@ class EditFilesAction : AnAction() {
                 }
             }
 
-
             if (settingsState.switchToSelectedFile && !editFilePathsPopupDialogUI.isEmpty()) {
                 openFile(event, editFilePathsPopupDialogUI.getSelectedIndex())
             }
@@ -60,8 +58,8 @@ class EditFilesAction : AnAction() {
     }
 
     private fun isProjectFile(filePath: String, projectBasePath: String): Boolean {
+        return true
         val virtualFile = VirtualFileManager.getInstance().findFileByUrl("file://$filePath") ?: return false
         return virtualFile.path.startsWith(projectBasePath)
     }
-
 }

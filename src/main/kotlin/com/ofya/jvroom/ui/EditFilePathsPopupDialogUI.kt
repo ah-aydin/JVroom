@@ -27,7 +27,6 @@ class EditFilePathsPopupDialogUI(filePaths: List<String>) : DialogWrapper(true) 
         )
         init()
         title = "JVroom Files"
-
     }
 
     override fun createCenterPanel(): JComponent {
@@ -88,8 +87,9 @@ class EditFilePathsPopupDialogUI(filePaths: List<String>) : DialogWrapper(true) 
                     } else {
                         selectedIndex
                     }
+                } else {
+                    previousDeleteKeyPress = currentTime
                 }
-                previousDeleteKeyPress = currentTime
             }
             if (e.keyCode == KeyEvent.VK_ENTER) {
                 doOKAction();

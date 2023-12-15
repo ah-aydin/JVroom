@@ -5,8 +5,8 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.vfs.VirtualFileManager
-import com.ofya.jvroom.GlobalStateService
-import com.ofya.jvroom.settings.SettingsState
+import com.ofya.jvroom.ProjectStateService
+import com.ofya.jvroom.globalsettings.SettingsState
 import com.ofya.jvroom.ui.EditFilePathsPopupDialogUI
 import com.ofya.jvroom.utils.closeAllFiles
 import com.ofya.jvroom.utils.openFile
@@ -25,23 +25,23 @@ class EditFilesAction : AnAction() {
   override fun actionPerformed(event: AnActionEvent) {
     val project = event.project ?: return
     val projectBasePath = project.basePath ?: return
-    val globalStateService = project.service<GlobalStateService>()
+    val projectStateService = project.service<ProjectStateService>()
     val settingsState = SettingsState.getInstance()
 
-    val filePaths = globalStateService.getFilePaths()
+    val filePaths = projectStateService.getFilePaths()
 
     val editFilePathsPopupDialogUI = EditFilePathsPopupDialogUI(filePaths)
     editFilePathsPopupDialogUI.show()
 
     if (editFilePathsPopupDialogUI.isOK) {
       val editedFilePaths = editFilePathsPopupDialogUI.getFilePaths()
-      globalStateService.setFilePaths(editedFilePaths.stream().filter {
+      projectStateService.setFilePaths(editedFilePaths.stream().filter {
         isProjectFile(it, projectBasePath)
       }.toList())
 
       if (settingsState.reorderFilesAfterEdit) {
         closeAllFiles(event)
-        for (i in 0 until (globalStateService.getFileCount())) {
+        for (i in 0 until (projectStateService.getFileCount())) {
           openFile(event, i)
         }
       }

@@ -1,4 +1,4 @@
-package com.ofya.jvroom.settings
+package com.ofya.jvroom.globalsettings
 
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.PersistentStateComponent
@@ -7,8 +7,8 @@ import com.intellij.openapi.components.Storage
 import com.intellij.util.xmlb.XmlSerializerUtil
 
 
-@State(name = "com.ofya.jvroom.settings.SettingsState", storages = [Storage("JVroomSettingsPlugin.xml")])
-internal class SettingsState : PersistentStateComponent<SettingsState> {
+@State(name = "com.ofya.jvroom.globalsettings.SettingsState", storages = [Storage("JVroomSettingsPlugin.xml")])
+class SettingsState : PersistentStateComponent<SettingsState> {
   var switchToSelectedFile: Boolean = true
   var reorderFilesAfterEdit: Boolean = true
   var editFilesWindowWidth: Int = 1000

@@ -1,4 +1,4 @@
-package com.ofya.jvroom.settings
+package com.ofya.jvroom.globalsettings
 
 import com.intellij.openapi.options.Configurable
 import org.jetbrains.annotations.Nls

@@ -3,7 +3,7 @@ package com.ofya.jvroom.ui
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.ui.components.JBList
 import com.intellij.ui.components.JBScrollPane
-import com.ofya.jvroom.settings.SettingsState
+import com.ofya.jvroom.globalsettings.SettingsState
 import java.awt.Dimension
 import java.awt.event.KeyAdapter
 import java.awt.event.KeyEvent

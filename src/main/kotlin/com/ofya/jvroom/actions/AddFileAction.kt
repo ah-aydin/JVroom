@@ -5,7 +5,7 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.service
 import com.intellij.openapi.fileEditor.FileEditorManager
-import com.ofya.jvroom.GlobalStateService
+import com.ofya.jvroom.ProjectStateService
 
 class AddFileAction : AnAction() {
 
@@ -33,7 +33,7 @@ class AddFileAction : AnAction() {
     }
     val selectedFile = selectedFiles[0]
 
-    project.service<GlobalStateService>().addFilePath(selectedFile.path)
+    project.service<ProjectStateService>().addFilePath(selectedFile.path)
   }
 
   override fun getActionUpdateThread(): ActionUpdateThread {

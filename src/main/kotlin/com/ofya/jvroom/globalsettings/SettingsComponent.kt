@@ -1,4 +1,4 @@
-package com.ofya.jvroom.settings
+package com.ofya.jvroom.globalsettings
 
 import com.intellij.ui.components.JBCheckBox
 import com.intellij.ui.components.fields.IntegerField

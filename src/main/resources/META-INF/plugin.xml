@@ -33,11 +33,11 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <applicationConfigurable parentId="editor"
-                                 id="com.ofya.jvroom.settings.SettingsConfigurable"
-                                 instance="com.ofya.jvroom.settings.SettingsConfigurable"
+                                 id="com.ofya.jvroom.globalsettings.SettingsConfigurable"
+                                 instance="com.ofya.jvroom.globalsettings.SettingsConfigurable"
                                  displayName="JVroom"
         />
-        <applicationService serviceImplementation="com.ofya.jvroom.settings.SettingsState"/>
+        <applicationService serviceImplementation="com.ofya.jvroom.globalsettings.SettingsState"/>
     </extensions>
 
     <actions>

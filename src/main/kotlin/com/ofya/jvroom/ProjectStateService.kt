@@ -1,9 +1,18 @@
 package com.ofya.jvroom
 
+import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.Service
+import com.intellij.openapi.components.State
+import com.intellij.openapi.components.Storage
+import com.intellij.util.xmlb.XmlSerializerUtil
 
 @Service(Service.Level.PROJECT)
-class GlobalStateService {
+@State(
+  name = "com.ofya.jvroom.ProjectStateService", storages = [Storage(
+    "\$PROJECT_CONFIG_DIR\$/JVroomSettingsPlugin.xml"
+  )]
+)
+class ProjectStateService : PersistentStateComponent<ProjectStateService> {
   private var filePaths: MutableList<String> = mutableListOf()
 
   fun addFilePath(filePath: String) {
@@ -30,5 +39,13 @@ class GlobalStateService {
 
   fun getFileCount(): Int {
     return filePaths.size
+  }
+
+  override fun getState(): ProjectStateService {
+    return this
+  }
+
+  override fun loadState(state: ProjectStateService) {
+    XmlSerializerUtil.copyBean(state, this)
   }
 }

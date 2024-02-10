@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.ofya.jvroom.ProjectStateService">
+    <option name="filePaths">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/ofya/jvroom/actions/EditFilesAction.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/ofya/jvroom/ui/EditFilePathsPopupDialogUI.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/ofya/jvroom/actions/AddFileAction.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/ofya/jvroom/ProjectStateService.kt" />
+      </list>
+    </option>
+  </component>
+</project>

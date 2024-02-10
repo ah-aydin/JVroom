@@ -17,8 +17,10 @@ class ProjectStateService : PersistentStateComponent<ProjectStateService> {
 
   fun addFilePath(filePath: String) {
     if (filePaths.contains(filePath)) {
+      println("File '$filePath' is already in list")
       return
     }
+    println("Adding file '$filePath' to list")
     filePaths.add(filePath)
   }
 
@@ -30,6 +32,7 @@ class ProjectStateService : PersistentStateComponent<ProjectStateService> {
   }
 
   fun setFilePaths(filePaths: List<String>) {
+    println("Updating file paths to $filePaths")
     this.filePaths = filePaths.toMutableList()
   }
 

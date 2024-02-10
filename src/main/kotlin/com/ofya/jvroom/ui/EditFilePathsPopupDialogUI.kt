@@ -10,16 +10,20 @@ import java.awt.event.KeyEvent
 import javax.swing.DefaultListModel
 import javax.swing.JComponent
 
-class EditFilePathsPopupDialogUI(filePaths: List<String>) : DialogWrapper(true) {
+class EditFilePathsPopupDialogUI(filePaths: List<String>, projectBasePath: String) : DialogWrapper(true) {
   private val doubleKeyPressMaxDelayInMilliseconds = 300
   private var previousDeleteKeyPress: Long = 0
 
-  private val filePathsList: JBList<String>
+  private val filePathLabels: JBList<FilePathLabel>
 
   init {
-    filePathsList = JBList<String>(filePaths)
-    filePathsList.selectedIndex = 0
-    filePathsList.addKeyListener(
+    val jLabels = mutableListOf<FilePathLabel>()
+    filePaths.iterator().forEach {
+      jLabels.add(FilePathLabel(it, projectBasePath))
+    }
+    this.filePathLabels = JBList<FilePathLabel>(jLabels)
+    this.filePathLabels.selectedIndex = 0
+    this.filePathLabels.addKeyListener(
       object : KeyAdapter() {
         override fun keyPressed(e: KeyEvent) {
           processKeyEvent(e)
@@ -33,15 +37,15 @@ class EditFilePathsPopupDialogUI(filePaths: List<String>) : DialogWrapper(true) 
   override fun createCenterPanel(): JComponent {
     val settingsState = SettingsState.getInstance()
 
-    val scrollPane = JBScrollPane(filePathsList)
+    val scrollPane = JBScrollPane(filePathLabels)
     scrollPane.preferredSize = Dimension(settingsState.editFilesWindowWidth, settingsState.editFilesWindowHeight)
 
-    filePathsList.requestFocus()
+    filePathLabels.requestFocus()
     return scrollPane
   }
 
   override fun getPreferredFocusedComponent(): JComponent {
-    return filePathsList
+    return filePathLabels
   }
 
   fun processKeyEvent(e: KeyEvent) {
@@ -50,47 +54,41 @@ class EditFilePathsPopupDialogUI(filePaths: List<String>) : DialogWrapper(true) 
     }
 
     if (e.isShiftDown) {
-      if (e.keyCode == KeyEvent.VK_J && filePathsList.selectedIndex + 1 < filePathsList.model.size) {
-        val nextIndex = filePathsList.selectedIndex + 1
-        val model = filePathsList.model as DefaultListModel
-        val selectedElement = model.getElementAt(filePathsList.selectedIndex)
+      if (e.keyCode == KeyEvent.VK_J && filePathLabels.selectedIndex + 1 < filePathLabels.model.size) {
+        val nextIndex = filePathLabels.selectedIndex + 1
+        val model = filePathLabels.model as DefaultListModel
+        val selectedElement = model.getElementAt(filePathLabels.selectedIndex)
         val nextElement = model.getElementAt(nextIndex)
 
-        model.set(filePathsList.selectedIndex, nextElement)
+        model.set(filePathLabels.selectedIndex, nextElement)
         model.set(nextIndex, selectedElement)
 
-        filePathsList.selectedIndex++
-      }
-      if (e.keyCode == KeyEvent.VK_K && filePathsList.selectedIndex > 0) {
-        val previousIndex = filePathsList.selectedIndex - 1
-        val model = filePathsList.model as DefaultListModel
-        val selectedElement = model.getElementAt(filePathsList.selectedIndex)
+        filePathLabels.selectedIndex++
+      } else if (e.keyCode == KeyEvent.VK_K && filePathLabels.selectedIndex > 0) {
+        val previousIndex = filePathLabels.selectedIndex - 1
+        val model = filePathLabels.model as DefaultListModel
+        val selectedElement = model.getElementAt(filePathLabels.selectedIndex)
         val previousElement = model.getElementAt(previousIndex)
 
-        model.set(filePathsList.selectedIndex, previousElement)
+        model.set(filePathLabels.selectedIndex, previousElement)
         model.set(previousIndex, selectedElement)
 
-        filePathsList.selectedIndex--
+        filePathLabels.selectedIndex--
+      } else if (e.keyCode == KeyEvent.VK_D) {
+        removeFileAtCursor()
       }
     } else {
       if (e.keyCode == KeyEvent.VK_J) {
-        filePathsList.selectedIndex++
+        filePathLabels.selectedIndex++
       }
       if (e.keyCode == KeyEvent.VK_K) {
-        filePathsList.selectedIndex--
+        filePathLabels.selectedIndex--
       }
       if (e.keyCode == KeyEvent.VK_D) {
         val currentTime = System.currentTimeMillis()
         if (currentTime - previousDeleteKeyPress < doubleKeyPressMaxDelayInMilliseconds) {
           previousDeleteKeyPress = 0
-          val model = filePathsList.model as DefaultListModel
-          val selectedIndex = filePathsList.selectedIndex
-          model.remove(filePathsList.selectedIndex)
-          filePathsList.selectedIndex = if (selectedIndex >= model.size) {
-            model.size - 1
-          } else {
-            selectedIndex
-          }
+          removeFileAtCursor()
         } else {
           previousDeleteKeyPress = currentTime
         }
@@ -104,19 +102,40 @@ class EditFilePathsPopupDialogUI(filePaths: List<String>) : DialogWrapper(true) 
     }
   }
 
+  private fun removeFileAtCursor() {
+    val model = filePathLabels.model as DefaultListModel
+    val selectedIndex = filePathLabels.selectedIndex
+    model.remove(filePathLabels.selectedIndex)
+    filePathLabels.selectedIndex = if (selectedIndex >= model.size) {
+      model.size - 1
+    } else {
+      selectedIndex
+    }
+  }
+
   fun isEmpty(): Boolean {
-    return filePathsList.model.size == 0
+    return filePathLabels.model.size == 0
   }
 
   fun getFilePaths(): List<String> {
     val filePaths: MutableList<String> = mutableListOf()
-    for (index in 0 until filePathsList.model.size) {
-      filePaths.add(filePathsList.model.getElementAt(index))
+    for (index in 0 until this.filePathLabels.model.size) {
+      filePaths.add(this.filePathLabels.model.getElementAt(index).filePath)
     }
     return filePaths
   }
 
   fun getSelectedIndex(): Int {
-    return filePathsList.selectedIndex
+    return filePathLabels.selectedIndex
+  }
+
+  private class FilePathLabel(filePath: String, projectBasePath: String) {
+
+    val filePath: String = filePath
+    val projectBasePath: String = projectBasePath
+
+    override fun toString(): String {
+      return this.filePath
+    }
   }
 }

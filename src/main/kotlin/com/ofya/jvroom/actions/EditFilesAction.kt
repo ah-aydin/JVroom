@@ -30,7 +30,7 @@ class EditFilesAction : AnAction() {
 
     val filePaths = projectStateService.getFilePaths()
 
-    val editFilePathsPopupDialogUI = EditFilePathsPopupDialogUI(filePaths)
+    val editFilePathsPopupDialogUI = EditFilePathsPopupDialogUI(filePaths, projectBasePath)
     editFilePathsPopupDialogUI.show()
 
     if (editFilePathsPopupDialogUI.isOK) {

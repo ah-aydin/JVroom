@@ -16,7 +16,7 @@ class AddFileAction : AnAction() {
       return
     }
 
-    val editor = FileEditorManager.getInstance(project).getSelectedEditor()
+    val editor = FileEditorManager.getInstance(project).selectedEditor
     if (editor == null) {
       event.presentation.isEnabledAndVisible = false
       return

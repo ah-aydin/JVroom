@@ -11,6 +11,7 @@ import com.intellij.util.xmlb.XmlSerializerUtil
 class SettingsState : PersistentStateComponent<SettingsState> {
   var switchToSelectedFile: Boolean = true
   var reorderFilesAfterEdit: Boolean = true
+  var editFilesShowOnlyFileName: Boolean = false
   var editFilesWindowWidth: Int = 1000
   var editFilesWindowHeight: Int = 300
 

@@ -25,6 +25,7 @@ class SettingsConfigurable : Configurable {
     val settings: SettingsState = SettingsState.getInstance()
     return settingsComponent.getSwitchToSelectedFile() != settings.switchToSelectedFile ||
         settingsComponent.getReorderFilesAfterEdit() != settings.reorderFilesAfterEdit ||
+        settingsComponent.getEditFilesShowOnlyFileName() != settings.editFilesShowOnlyFileName ||
         settingsComponent.getEditFilesWindowWidth() != settings.editFilesWindowWidth ||
         settingsComponent.getEditFilesWindowHeight() != settings.editFilesWindowHeight
   }
@@ -33,6 +34,7 @@ class SettingsConfigurable : Configurable {
     val settings: SettingsState = SettingsState.getInstance()
     settings.switchToSelectedFile = settingsComponent.getSwitchToSelectedFile()
     settings.reorderFilesAfterEdit = settingsComponent.getReorderFilesAfterEdit()
+    settings.editFilesShowOnlyFileName = settingsComponent.getEditFilesShowOnlyFileName()
     settings.editFilesWindowWidth = settingsComponent.getEditFilesWindowWidth()
     settings.editFilesWindowHeight = settingsComponent.getEditFilesWindowHeight()
   }
@@ -41,6 +43,7 @@ class SettingsConfigurable : Configurable {
     val settings: SettingsState = SettingsState.getInstance()
     settingsComponent.setSwitchToSelectedFile(settings.switchToSelectedFile)
     settingsComponent.setReorderFilesAfterEdit(settings.reorderFilesAfterEdit)
+    settingsComponent.setEditFilesShowOnlyFileName(settings.editFilesShowOnlyFileName)
     settingsComponent.setEditFilesWindowWidth(settings.editFilesWindowWidth)
     settingsComponent.setEditFilesWindowHeight(settings.editFilesWindowHeight)
   }

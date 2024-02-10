@@ -12,6 +12,8 @@ class SettingsComponent {
   private var mainPanel: JPanel
   private var switchToSelectedFile = JBCheckBox("Switch to selected file after editing JVroom files")
   private var reorderFilesAfterEdit = JBCheckBox("Reorder files after editing JVroom files (closes files not in list)")
+  private var editFilesShowOnlyFileName =
+    JBCheckBox("Display only the file name")
   private var editFilesWindowWidth = IntegerField("Width", 0, Int.MAX_VALUE)
   private var editFilesWindowHeight = IntegerField("Height", 0, Int.MAX_VALUE)
 
@@ -24,6 +26,7 @@ class SettingsComponent {
       .addComponent(reorderFilesAfterEdit)
       .addVerticalGap(10)
       .addLabeledComponent("Edit files window settings", JSeparator())
+      .addComponent(editFilesShowOnlyFileName)
       .addLabeledComponent("Width", editFilesWindowWidth)
       .addLabeledComponent("Height", editFilesWindowHeight)
       .addComponentFillVertically(JPanel(), 0)
@@ -52,6 +55,14 @@ class SettingsComponent {
 
   fun setReorderFilesAfterEdit(newStatus: Boolean) {
     reorderFilesAfterEdit.isSelected = newStatus
+  }
+
+  fun getEditFilesShowOnlyFileName(): Boolean {
+    return editFilesShowOnlyFileName.isSelected
+  }
+
+  fun setEditFilesShowOnlyFileName(newStatus: Boolean) {
+    editFilesShowOnlyFileName.isSelected = newStatus
   }
 
   fun getEditFilesWindowWidth(): Int {

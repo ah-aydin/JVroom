@@ -7,10 +7,12 @@ import com.ofya.jvroom.globalsettings.SettingsState
 import java.awt.Dimension
 import java.awt.event.KeyAdapter
 import java.awt.event.KeyEvent
+import java.io.File
 import javax.swing.DefaultListModel
 import javax.swing.JComponent
 
-class EditFilePathsPopupDialogUI(filePaths: List<String>, projectBasePath: String) : DialogWrapper(true) {
+class EditFilePathsPopupDialogUI(filePaths: List<String>, projectBasePath: String, showOnlyFileName: Boolean) :
+  DialogWrapper(true) {
   private val doubleKeyPressMaxDelayInMilliseconds = 300
   private var previousDeleteKeyPress: Long = 0
 
@@ -19,7 +21,7 @@ class EditFilePathsPopupDialogUI(filePaths: List<String>, projectBasePath: Strin
   init {
     val jLabels = mutableListOf<FilePathLabel>()
     filePaths.iterator().forEach {
-      jLabels.add(FilePathLabel(it, projectBasePath))
+      jLabels.add(FilePathLabel(it, projectBasePath, showOnlyFileName))
     }
     this.filePathLabels = JBList<FilePathLabel>(jLabels)
     this.filePathLabels.selectedIndex = 0
@@ -129,9 +131,17 @@ class EditFilePathsPopupDialogUI(filePaths: List<String>, projectBasePath: Strin
     return filePathLabels.selectedIndex
   }
 
-  private class FilePathLabel(val filePath: String, projectBasePath: String) {
+  private class FilePathLabel(val filePath: String, projectBasePath: String, showOnlyFileName: Boolean) {
 
-    val displayText: String = filePath.replace(projectBasePath, "")
+    val displayText: String
+
+    init {
+      if (showOnlyFileName) {
+        this.displayText = File(filePath).name
+      } else {
+        this.displayText = filePath.replace(projectBasePath, "")
+      }
+    }
 
     override fun toString(): String {
       return this.displayText

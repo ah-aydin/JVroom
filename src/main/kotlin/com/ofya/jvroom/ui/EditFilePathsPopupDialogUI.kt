@@ -129,13 +129,12 @@ class EditFilePathsPopupDialogUI(filePaths: List<String>, projectBasePath: Strin
     return filePathLabels.selectedIndex
   }
 
-  private class FilePathLabel(filePath: String, projectBasePath: String) {
+  private class FilePathLabel(val filePath: String, projectBasePath: String) {
 
-    val filePath: String = filePath
-    val projectBasePath: String = projectBasePath
+    val displayText: String = filePath.replace(projectBasePath, "")
 
     override fun toString(): String {
-      return this.filePath
+      return this.displayText
     }
   }
 }

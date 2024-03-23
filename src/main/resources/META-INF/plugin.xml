@@ -25,11 +25,8 @@
 
     ]]></description>
     <change-notes><![CDATA[
-    <h3>New Features</h3>
     <ul>
-        <li>Files now will display their path relative to the projects root directory in edit files menu</li>
-        <li>Toggle in setting to only display the file name in edit files menu</li>
-        <li>Remove files from the edit files menu with <b>Shift+D</b>
+        <li>make plugin compatible until IDE build number 241.*</li>
     </ul>
     ]]></change-notes>
 

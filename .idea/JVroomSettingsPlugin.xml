@@ -3,8 +3,8 @@
   <component name="com.ofya.jvroom.ProjectStateService">
     <option name="filePaths">
       <list>
-        <option value="$PROJECT_DIR$/src/main/kotlin/com/ofya/jvroom/globalsettings/SettingsState.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/com/ofya/jvroom/globalsettings/SettingsConfigurable.kt" />
+        <option value="$PROJECT_DIR$/build.gradle.kts" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" />
       </list>
     </option>
   </component>

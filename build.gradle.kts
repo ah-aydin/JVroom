@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.ofya"
-version = "2024-08-07"
+version = "2024-09-20"
 
 repositories {
   mavenCentral()
@@ -32,12 +32,12 @@ tasks {
 
   patchPluginXml {
     sinceBuild.set("222")
-    untilBuild.set("242.*")
+    untilBuild.set("243.*")
   }
 
   signPlugin {
-    certificateChainFile.set(file("../Keys/chain.crt"))
-    privateKeyFile.set(file("../Keys/private.pem"))
+    certificateChainFile.set(file("../../Keys/chain.crt"))
+    privateKeyFile.set(file("../../Keys/private.pem"))
     password.set(System.getenv("PRIVATE_KEY_PASS"))
   }
 

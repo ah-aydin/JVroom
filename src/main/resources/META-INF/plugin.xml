@@ -26,7 +26,7 @@
     ]]></description>
     <change-notes><![CDATA[
     <ul>
-        <li>make plugin compatible until IDE build number 243.*</li>
+        <li>make plugin compatible until IDE build number 251.*</li>
     </ul>
     ]]></change-notes>
 

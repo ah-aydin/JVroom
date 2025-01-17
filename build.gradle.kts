@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.ofya"
-version = "2024-09-20"
+version = "2025-01-17"
 
 repositories {
   mavenCentral()
@@ -32,7 +32,7 @@ tasks {
 
   patchPluginXml {
     sinceBuild.set("222")
-    untilBuild.set("243.*")
+    untilBuild.set("251.*")
   }
 
   signPlugin {

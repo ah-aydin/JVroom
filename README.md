@@ -1,5 +1,7 @@
 # JVroom
 
+[JetBrains Marketplace Page](https://plugins.jetbrains.com/plugin/23103-jvroom?noRedirect=true)
+
 ## Problem
 
 - you like using neovim or vim motions

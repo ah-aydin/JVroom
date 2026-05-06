@@ -7,7 +7,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
     }
 
 group = "com.ofya"
-version = "2026-01-09"
+version = "2026-05-06"
 
 repositories {
   mavenCentral()
@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
   intellijPlatform {
-    intellijIdea("2025.3")
+    intellijIdea("2026.1")
     bundledPlugin("com.intellij.java")
   }
 }
@@ -37,8 +37,8 @@ tasks {
   }
 
   patchPluginXml {
-    sinceBuild.set("253")
-    untilBuild.set("253.*")
+    sinceBuild.set("261.0")
+    untilBuild.set("261.*")
   }
 
   signPlugin {
